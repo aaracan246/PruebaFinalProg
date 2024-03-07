@@ -1,4 +1,4 @@
-package org.example
+package org.example.Miscellaneous
 
 interface Roller{
     fun roll(die: Die): Int
@@ -14,7 +14,7 @@ class D20: Die(20)
 
 class D100: Die(100)
 
-class DiceRoller: Roller{
+class DiceRoller: Roller {
     override fun roll(die: Die): Int {
         return (1..die.numberOfFaces).random()
     }
