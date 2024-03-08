@@ -28,7 +28,7 @@ object CreatePlayer {
 
     fun classMenu(){
 
-        val terminal = Terminal()
+        val t = Terminal()
         //TODO: Introducir esto con Mordant
 
         println("Fighter")
