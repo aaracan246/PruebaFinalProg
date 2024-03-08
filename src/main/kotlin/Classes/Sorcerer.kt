@@ -1,5 +1,7 @@
 package org.example.Classes
 
+import org.example.GameFlow.Player
+
 class Sorcerer(name: String,
                maxHealth: Int,
                currentHealth: Int,

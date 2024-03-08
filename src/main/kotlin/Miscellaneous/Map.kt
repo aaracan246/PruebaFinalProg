@@ -1,4 +1,4 @@
-package Miscellaneous;
+package org.example.Miscellaneous
 
-public class Map {
+class Map {
 }

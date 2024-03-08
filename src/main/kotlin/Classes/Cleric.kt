@@ -1,5 +1,7 @@
 package org.example.Classes
 
+import org.example.GameFlow.Player
+
 class Cleric(name: String,
              maxHealth: Int,
              currentHealth: Int,
@@ -10,4 +12,5 @@ class Cleric(name: String,
                                             maxHealth,
                                             currentHealth,
                                             initiative){
+
 }

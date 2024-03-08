@@ -6,6 +6,5 @@ open class Summoner(name: String,
                     initiative: Int): Enemy(name,
                                             maxHealth,
                                             currentHealth,
-                                            initiative
-){
+                                            initiative){
 }

@@ -1,4 +1,4 @@
-package org.example.Classes
+package org.example.GameFlow
 
 abstract class Player(val name: String,
                       var maxHealth: Int,
