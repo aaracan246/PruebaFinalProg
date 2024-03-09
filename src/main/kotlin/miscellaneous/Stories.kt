@@ -1,0 +1,4 @@
+package miscellaneous
+
+class Stories {
+}

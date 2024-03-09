@@ -1,4 +1,6 @@
-package org.example.Enemies
+package enemies
+
+import enemies.Enemy
 
 class Kobold(name: String,
              maxHealth: Int,

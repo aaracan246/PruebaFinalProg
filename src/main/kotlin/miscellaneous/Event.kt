@@ -1,4 +1,4 @@
-package org.example.Miscellaneous
+package miscellaneous
 
 class Event {
 

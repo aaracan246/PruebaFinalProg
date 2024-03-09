@@ -1,6 +1,6 @@
 package org.example
-import org.example.Miscellaneous.DiceType
-import org.example.Miscellaneous.DiceRoller
+
+import org.example.GameFlow.CreatePlayer
 
 fun main() {
 //    val diceRoller = DiceRoller()  // probando el dadito
@@ -9,4 +9,6 @@ fun main() {
 //    val roll = diceRoller.roll(d100)
 //
 //    println(roll)
+
+    CreatePlayer.createChar()
 }

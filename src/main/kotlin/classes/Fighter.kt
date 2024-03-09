@@ -1,4 +1,4 @@
-package org.example.Classes
+package classes
 
 import org.example.GameFlow.Player
 
@@ -11,4 +11,6 @@ class Fighter(name: String = "Noelia",
                                                 maxHealth,
                                                 currentHealth,
                                                 initiative){
+
+    override fun toString() = "Hero's name: ${this.name}, max health: $maxHealth, current health: $currentHealth, initiative: $initiative, armor: $armor, executes remaining: $numberOfExecutes."
 }

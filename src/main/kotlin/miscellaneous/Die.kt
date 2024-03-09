@@ -1,4 +1,4 @@
-package org.example.Miscellaneous
+package miscellaneous
 
 enum class DiceType(val numberOfFaces: Int){
 

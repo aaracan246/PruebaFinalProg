@@ -1,4 +1,4 @@
-package org.example.Enemies
+package enemies
 
 open class Enemy(val name: String,
                  val maxHealth: Int,

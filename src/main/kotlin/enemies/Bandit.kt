@@ -1,4 +1,4 @@
-package org.example.Enemies
+package enemies
 
 class Bandit(name: String,
              maxHealth: Int,
