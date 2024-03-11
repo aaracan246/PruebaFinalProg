@@ -2,12 +2,14 @@ package classes
 
 import org.example.GameFlow.Player
 
-class Fighter(name: String = "Noelia",
+class Fighter(level: Int,
+              name: String = "Noelia",
               maxHealth: Int,
               currentHealth: Int,
               initiative: Int,
               var armor: Int,
-              var numberOfExecutes: Int): Player(name,
+              var numberOfExecutes: Int): Player(level,
+                                                name,
                                                 maxHealth,
                                                 currentHealth,
                                                 initiative){

@@ -2,13 +2,15 @@ package classes
 
 import org.example.GameFlow.Player
 
-class Cleric(name: String = "",
+class Cleric(level: Int,
+             name: String = "",
              maxHealth: Int,
              currentHealth: Int,
              initiative: Int,
              var armor: Int,
              var regeneration: Int,
-             val spellsRemaining: Int):  Player(name,
+             val spellsRemaining: Int):  Player(level,
+                                            name,
                                             maxHealth,
                                             currentHealth,
                                             initiative){

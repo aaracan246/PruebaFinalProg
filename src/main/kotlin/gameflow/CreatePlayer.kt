@@ -44,8 +44,8 @@ object CreatePlayer: ConsoleSystem(), CharacterCreator<Player>{
             3 -> createRogue(charName)
             4 -> createSorcerer(charName)
             else -> {
-                println("Invalid choice. Defaulting to my favourite class.")
-                createFighter(charName)
+                println("Invalid choice. Defaulting to the coolest class.")
+                createCleric(charName)
             }
         }
     }
@@ -68,22 +68,22 @@ object CreatePlayer: ConsoleSystem(), CharacterCreator<Player>{
 
     private fun createFighter(charName: String): Fighter {
         println("Hero created successfully!!")
-        return Fighter(name = charName, maxHealth = 50, currentHealth = 50, initiative = 10, armor = 10, numberOfExecutes = 5)
+        return Fighter(level = 1, name = charName, maxHealth = 50, currentHealth = 50, initiative = 10, armor = 10, numberOfExecutes = 5)
     }
 
     private fun createCleric(charName: String): Cleric {
         println("Hero created successfully!!")
-        return Cleric(name = charName, maxHealth = 35, currentHealth = 35, initiative = 10, armor = 10, regeneration = 2, spellsRemaining = 3)
+        return Cleric(level = 1, name = charName, maxHealth = 35, currentHealth = 35, initiative = 10, armor = 10, regeneration = 2, spellsRemaining = 3)
     }
 
     private fun createRogue(charName: String): Rogue {
         println("Hero created successfully!!")
-        return Rogue(name = charName, maxHealth = 30, currentHealth = 30, initiative = 10, sneakAttack = true)
+        return Rogue(level = 1, name = charName, maxHealth = 30, currentHealth = 30, initiative = 10, sneakAttack = true)
     }
 
     private fun createSorcerer(charName: String): Sorcerer {
         println("Hero created successfully!!")
-        return Sorcerer(name = charName, maxHealth = 28, currentHealth = 28, initiative = 10, spellsRemaining = 6)
+        return Sorcerer(level = 1, name = charName, maxHealth = 28, currentHealth = 28, initiative = 10, spellsRemaining = 6)
     }
 
 }

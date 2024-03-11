@@ -2,13 +2,16 @@ package org.example.console
 
 import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.table.Table
+import com.github.ajalt.mordant.table.table
 import com.github.ajalt.mordant.terminal.Terminal
 import org.example.GameFlow.Player
+import javax.swing.table.TableCellRenderer
 
 open class ConsoleSystem {
+        private val t = Terminal()
+
     open fun classMenu(){
 
-        val t = Terminal()
         val textWhitesmoke = TextColors.rgb("F5F5F5")
         val textRed = TextColors.red
         val textDarkMagenta = TextColors.rgb("A330C9")
@@ -33,12 +36,19 @@ open class ConsoleSystem {
 
 
 
-//    open fun showCharData(): Player{
-//
-//        Table
-//
-//
-//    }
+    open fun showCharData(player: Player){
+
+        val table = table {
+            header {
+                row("Name", "Class", "Level")
+            }
+            body {
+                row(player.name, player.javaClass.simpleName, player.level)  //player.javaClass.simpleName debería imprimir el nombre asignado a la clase del ítem
+            }
+
+        }
+        println(table.render(t, 25))
+    }
 }
 
 

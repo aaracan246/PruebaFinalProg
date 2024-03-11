@@ -2,11 +2,13 @@ package classes
 
 import org.example.GameFlow.Player
 
-class Rogue(name: String = "Murochima",
+class Rogue(level: Int,
+            name: String = "Murochima",
             maxHealth: Int,
             currentHealth: Int,
             initiative: Int,
-            var sneakAttack: Boolean = true): Player(name,
+            var sneakAttack: Boolean = true): Player(level,
+                                                    name,
                                                     maxHealth,
                                                     currentHealth,
                                                     initiative){
