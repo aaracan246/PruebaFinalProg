@@ -36,6 +36,8 @@ object CreatePlayer: ConsoleSystem(), CharacterCreator<Player>{
         t.println((TextColors.rgb("AAD372")("3. Rogue")))
         t.println((TextColors.rgb("A330C9")("4. Sorcerer")))
         classMenu()
+        t.println((TEXT_WHITESMOKE)("Select the number of your class: "))
+
         val selection = readln()
 
         return when (selection.toIntOrNull()) {
