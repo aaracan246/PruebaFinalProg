@@ -9,14 +9,13 @@ import com.github.ajalt.mordant.terminal.Terminal
 import miscellaneous.DiceRoller
 import miscellaneous.DiceType
 import org.example.console.ConsoleSystem
+import org.example.console.Sender
 
 interface CharacterCreator <T: Player>{
         fun createChar(): T
     }
 
-object CreatePlayer: ConsoleSystem(), CharacterCreator<Player>{
-    private val t = Terminal()
-
+object CreatePlayer: CharacterCreator<Player>{
     override fun createChar(): Player {
 
 
@@ -30,13 +29,7 @@ object CreatePlayer: ConsoleSystem(), CharacterCreator<Player>{
         var currentHealth = maxHealth
         val initiative = diceRoller.roll(d20)
 
-        println("Please select your class:")
-        t.println((TextColors.red)("1. Fighter"))
-        t.println((TextColors.rgb("FFDF00")("2. Cleric")))
-        t.println((TextColors.rgb("AAD372")("3. Rogue")))
-        t.println((TextColors.rgb("A330C9")("4. Sorcerer")))
-        classMenu()
-        t.println((TEXT_WHITESMOKE)("Select the number of your class: "))
+        ConsoleSystem.classSelectorMenu()
 
         val selection = readln()
 
@@ -46,7 +39,7 @@ object CreatePlayer: ConsoleSystem(), CharacterCreator<Player>{
             3 -> createRogue(charName)
             4 -> createSorcerer(charName)
             else -> {
-                println("Invalid choice. Defaulting to the coolest class.")
+                ConsoleSystem.printer("Invalid choice. Defaulting to the coolest class.")
                 createCleric(charName)
             }
         }
@@ -56,11 +49,10 @@ object CreatePlayer: ConsoleSystem(), CharacterCreator<Player>{
 
         var charName: String
         do {
-
-            println("Please enter the character's name:")
+            ConsoleSystem.printer("Please enter the character's name:")
             charName = readln()
-            if (charName.isBlank()) { println("Name cannot be blank.") }
-            else if (charName.any { it.isDigit() }) { println("Name cannot be a number.") }
+            if (charName.isBlank()) { ConsoleSystem.printer("Name cannot be blank.") }
+            else if (charName.any { it.isDigit() }) { ConsoleSystem.printer("Name cannot be a number.") }
 
         }while (charName.isBlank() || charName.any { it.isDigit() })
 
@@ -69,22 +61,18 @@ object CreatePlayer: ConsoleSystem(), CharacterCreator<Player>{
 
 
     private fun createFighter(charName: String): Fighter {
-        println("Hero created successfully!!")
         return Fighter(level = 1, name = charName, maxHealth = 50, currentHealth = 50, initiative = 10, armor = 10, numberOfExecutes = 5)
     }
 
     private fun createCleric(charName: String): Cleric {
-        println("Hero created successfully!!")
         return Cleric(level = 1, name = charName, maxHealth = 35, currentHealth = 35, initiative = 10, armor = 10, regeneration = 2, spellsRemaining = 3)
     }
 
     private fun createRogue(charName: String): Rogue {
-        println("Hero created successfully!!")
         return Rogue(level = 1, name = charName, maxHealth = 30, currentHealth = 30, initiative = 10, sneakAttack = true)
     }
 
     private fun createSorcerer(charName: String): Sorcerer {
-        println("Hero created successfully!!")
         return Sorcerer(level = 1, name = charName, maxHealth = 28, currentHealth = 28, initiative = 10, spellsRemaining = 6)
     }
 

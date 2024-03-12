@@ -5,19 +5,61 @@ import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.rendering.WidthRange
 import com.github.ajalt.mordant.table.table
 import com.github.ajalt.mordant.terminal.Terminal
+import org.example.GameFlow.CreatePlayer
 import org.example.GameFlow.Player
 
+    interface Sender{
+        fun printer(msgToPrint: String)
+    }
 
-open class ConsoleSystem {
-        private val t = Terminal()
-companion object{
+    interface Reader{
+        fun reader(): String
+    }
+
+
+
+object ConsoleSystem: Sender, Reader{
+
+
+    override fun printer(msgToPrint: String) {
+        println(msgToPrint)
+    }
+
+
+
+    override fun reader(): String {
+        //var msgToRead = readln()
+        return readln()
+    }
+
+
+    private val t = Terminal()
     val TEXT_WHITESMOKE = TextColors.rgb("F5F5F5")
     val TEXT_RED = TextColors.red
     val TEXT_DARKMAGENTA = TextColors.rgb("A330C9")
     val TEXT_GOLD = TextColors.rgb("FFDF00")
     val TEXT_GREEN = TextColors.rgb("AAD372")
-}
-    open fun classMenu(){
+
+
+    fun classSelectorMenu(){
+        println("Please select your class:")
+        t.println((TextColors.red)("1. Fighter"))
+        t.println((TextColors.rgb("FFDF00")("2. Cleric")))
+        t.println((TextColors.rgb("AAD372")("3. Rogue")))
+        t.println((TextColors.rgb("A330C9")("4. Sorcerer")))
+        classMenu()
+        t.println((TEXT_WHITESMOKE)("Select the number of your class: "))
+    }
+
+    fun inGameMenu(){
+        t.println("Select your next move: ")
+        t.println("1. Normal attack (1d4)")
+        t.println("2. Skill")
+        t.println("3. Use item")
+        t.println("4. Pass turn")
+    }
+
+    private fun classMenu(){
 
 
 
@@ -37,9 +79,7 @@ companion object{
                 "                                                                                Skill: ${TEXT_DARKMAGENTA("Spell-casting")}. You can choose from a list of spells to help you in battle.                                                                                             "))
     }
 
-
-
-    open fun showCharData(player: Player){
+    fun showCharData(player: Player){
 
         val table = table {
             borderType = BorderType.ROUNDED

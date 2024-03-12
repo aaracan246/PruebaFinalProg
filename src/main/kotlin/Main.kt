@@ -16,7 +16,7 @@ fun main() {
 
     val stories = Stories.printPrologue()
     //var player = Cleric(1, "Noe", 123, 123, 23, 2, 2, 2)
-    val consoleSystem = ConsoleSystem()
+    val consoleSystem = ConsoleSystem
     val player = CreatePlayer.createChar()
 
     println(stories)
