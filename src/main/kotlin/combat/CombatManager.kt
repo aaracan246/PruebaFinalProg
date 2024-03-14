@@ -1,6 +1,8 @@
 package combat
 
 import enemies.Enemy
+import miscellaneous.DiceRoller
+import miscellaneous.DiceType
 import org.example.GameFlow.Player
 import org.example.console.ConsoleSystem
 
@@ -14,7 +16,7 @@ object CombatManager{
 
             val selection = ConsoleSystem.reader().toIntOrNull()
             when(selection){                                                                          // Este sería el turno del jugador
-                1 -> playerAttack()
+                1 -> playerAttack(player, enemy)
 
                 2 -> playerSkill()
 
@@ -33,7 +35,21 @@ object CombatManager{
 }
 
 
-    fun playerAttack(){}
+fun playerAttack(player: Player, enemy: Enemy): Int {
+    val diceRoller = DiceRoller()
+    val d20 = DiceType.D20
+    val roll = diceRoller.roll(d20)
+    val critFail = 2
+    when (roll) {
+
+        in 2..19 -> ConsoleSystem.printer("You rolled a $roll. ${enemy.name} receives $roll points of dmg.")
+
+        1 -> ConsoleSystem.printer("Critical failure!! You rolled a $roll. You miss the attack so hard you hit yourself in the head and take $critFail points of dmg.")
+
+        20 -> ConsoleSystem.printer("Critical hit!! You rolled a $roll.")
+    }
+    return roll
+}
 
     fun playerSkill(){}
 
@@ -43,6 +59,3 @@ object CombatManager{
 
 
 
-
-
-}
