@@ -34,7 +34,7 @@ object CombatManager{
     }
 }
 
-// FALTA IMPLEMENTAR TAKEDMG EN LAS DOS FUNCIONES
+
 fun playerAttack(player: Player, enemy: Enemy): Int {
     val diceRoller = DiceRoller()
     val d20 = DiceType.D20
