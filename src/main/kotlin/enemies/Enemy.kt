@@ -8,4 +8,8 @@ open class Enemy(val name: String,
     fun isAlive(): Boolean{
         return currentHealth > 0
     }
+
+    fun takeDmg(dmgTaken: Int): Int{
+        return currentHealth - dmgTaken
+    }
 }

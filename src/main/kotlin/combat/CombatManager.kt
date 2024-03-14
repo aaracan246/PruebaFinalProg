@@ -29,12 +29,12 @@ object CombatManager{
         }
 
         if (enemy.isAlive()){                                                                        // Turno máquina
-            enemyAttack()
+            enemyAttack(player, enemy)
         }
     }
 }
 
-
+// FALTA IMPLEMENTAR TAKEDMG EN LAS DOS FUNCIONES
 fun playerAttack(player: Player, enemy: Enemy): Int {
     val diceRoller = DiceRoller()
     val d20 = DiceType.D20
@@ -48,6 +48,7 @@ fun playerAttack(player: Player, enemy: Enemy): Int {
 
         20 -> ConsoleSystem.printer("Critical hit!! You rolled a $roll.")
     }
+    enemy.takeDmg(roll)
     return roll
 }
 
@@ -55,7 +56,22 @@ fun playerAttack(player: Player, enemy: Enemy): Int {
 
     fun playerItem(){}
 
-    fun enemyAttack(){}
+    fun enemyAttack(player: Player, enemy: Enemy): Int{
+        val diceRoller = DiceRoller()
+        val d20 = DiceType.D20
+        val roll = diceRoller.roll(d20)
+        val critFail = 2
+        when (roll) {
+
+            in 2..19 -> ConsoleSystem.printer("Enemy rolled a $roll. ${player.name} receives $roll points of dmg.")
+
+            1 -> ConsoleSystem.printer("Critical failure!! Enemy rolled a $roll. Enemy misses the attack so hard it hit itself in the head and take $critFail points of dmg.")
+
+            20 -> ConsoleSystem.printer("Critical hit!! Enemy rolled a $roll.")
+        }
+        player.takeDmg(roll)
+        return roll
+    }
 
 
 
