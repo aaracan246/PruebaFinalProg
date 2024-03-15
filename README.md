@@ -200,6 +200,22 @@ Cleric:
 
 https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/classes/Cleric.kt#L5-L16
 
+Comentarios a nivel de código:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/9a937d62babbc961c3bacb52253a8d6026bcfdc1/src/main/kotlin/Main.kt#L10-L43
+
+En el main se han realizado comentarios con el fin de explicar cómo funciona cada instrucción.
+
 #### **Criterio global 9: Genéricos**
 - **(6.f)**: Muestra ejemplos de tu código sobre cómo has implementado una clase con genéricos. ¿Qué beneficio has obtenido?
+
+
+   El uso de genéricos en el proyecto es muy concreto y se ve reflejado en la interfaz del creador de personajes CreatePlayer:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/9a937d62babbc961c3bacb52253a8d6026bcfdc1/src/main/kotlin/gameflow/CreatePlayer.kt#L18-L24
+
+Al implementarlo de esta manera, no hay que modificar nada en la interfaz y podemos crear un personaje de cualquier tipo mientras sea una especialización o extensión de Player.
+
+https://github.com/aaracan246/PruebaFinalProg/blob/9a937d62babbc961c3bacb52253a8d6026bcfdc1/src/main/kotlin/gameflow/CreatePlayer.kt#L87-L89
+  
 
