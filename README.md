@@ -85,7 +85,7 @@ https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8
 
 https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/Main.kt#L26
 
-   La función tiene por parámetro un jugador, por lo que al invocarla en el main necesitamos pasarle el jugador en cuestión (por eso existe la variable val player = CreatePlayer.createChar())
+   La función tiene por parámetro un jugador, por lo que al invocarla en el main necesitamos que reciba el jugador en cuestión (por eso existe la variable val player = CreatePlayer.createChar())
 
 https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/console/ConsoleSystem.kt#L110-L123
 
@@ -93,7 +93,27 @@ https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8
 
 #### **Criterio global 2: Crear y llamar métodos estáticos**
 - **(4.i)**: ¿Has definido algún método/propiedad estático en tu proyecto? ¿Cuál era el objetivo y por qué consideraste que debía ser estático en lugar de un método/propiedad de instancia?
+
+-    En todo lo que rodea al dado se han utilizado propiedades estáticas. Para diferenciar los tipos de dado (en base a su número de caras) se ha usado una enum class:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/miscellaneous/Die.kt#L7-L16
+
+   Esta enum class recibe el parámetro numberOfFaces: Int que será usado en conjunto con una clase y una interfaz para poder tirar el dado con éxito.
+
+   Además de esto, también se utiliza de manera estática el objeto ConsoleSystem. Este objeto se encarga de todo lo relacionado con la consola por lo que facilita mucho su implementación el hecho de que sea estático.
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/console/ConsoleSystem.kt#L36
+
 - **(2.e)**: ¿En qué parte del código se llama a un método estático o se utiliza la propiedad estática?
+
+- En cualquier parte en la que se necesitase un uso de un comando de consola. Por ejemplo:
+
+
+   A la hora de crear un personaje se realizan varias salidas de consola, por lo que se requiere de su uso:
+
+  https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/gameflow/CreatePlayer.kt#L47-L62
+
+  https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/console/ConsoleSystem.kt#L14-L36
 
 #### **Criterio global 3: Uso de entornos**
 - **(2.i)**: ¿Cómo utilizaste el IDE para el desarrollo de tu proyecto? Describe el proceso de creación, compilación, y prueba de tu programa.
