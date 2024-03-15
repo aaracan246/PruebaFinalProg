@@ -67,6 +67,30 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 #### **Criterio global 1: Instancia objetos y hacer uso de ellos**
 - **(2.a, 2.b, 2.c, 2.d, 2.f, 2.h, 4.f, 4.a)**: Describe cómo has instanciado y utilizado objetos en tu proyecto. ¿Cómo has aplicado los constructores y pasado parámetros a los métodos? Proporciona ejemplos específicos de tu código.
 
+-    Para instanciar objetos he utilizado diversas estructuras. Desde abstract class hasta open class (para variar un poco en las formas de hacerlo). Por ejemplo, la abstract class Player(){}:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/gameflow/Player.kt#L11-L17
+
+   Como se puede observar en el código se ha creado la abstract class Player(){} de esta manera con el fin de que sirva de plantilla para las clases jugables del juego (Fighter, Cleric, Rogue y Sorcerer). A la hora de instanciarlo, como es una abstract class no se puede instanciar como objeto en sí, pero sí se pueden instanciar sus derivadas. Lo he construido de la siguiente forma:
+
+   Se crea una instancia de player en el main:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/Main.kt#L24
+
+   Y esto llama al objeto CreatePlayer (y a su función createChar), que entre otras cosas lo que hace es llamar a un constructor de clases:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/gameflow/CreatePlayer.kt#L51-L62
+
+   Por otro lado, para mostrar el cómo he pasado parámetros a los distintos métodos tenemos el ejemplo de la tabla que muestra los datos del jugador:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/Main.kt#L26
+
+   La función tiene por parámetro un jugador, por lo que al invocarla en el main necesitamos pasarle el jugador en cuestión (por eso existe la variable val player = CreatePlayer.createChar())
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/console/ConsoleSystem.kt#L110-L123
+
+
+
 #### **Criterio global 2: Crear y llamar métodos estáticos**
 - **(4.i)**: ¿Has definido algún método/propiedad estático en tu proyecto? ¿Cuál era el objetivo y por qué consideraste que debía ser estático en lugar de un método/propiedad de instancia?
 - **(2.e)**: ¿En qué parte del código se llama a un método estático o se utiliza la propiedad estática?
