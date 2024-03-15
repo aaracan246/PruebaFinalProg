@@ -10,7 +10,7 @@ abstract class Player(var level: Int,
         return currentHealth > 0
     }
 
-    fun takeDmg(dmgTaken: Int): Int{
-        return currentHealth - dmgTaken
+    fun takeDmg(dmgTaken: Int){
+         currentHealth -= dmgTaken
     }
 }

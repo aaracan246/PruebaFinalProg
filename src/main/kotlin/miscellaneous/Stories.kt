@@ -2,6 +2,7 @@ package miscellaneous
 
 import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.terminal.Terminal
+import org.example.console.ConsoleSystem
 
 object Stories {
     fun printPrologue(){
@@ -21,6 +22,11 @@ object Stories {
         ))
     }
 
+    fun enterTheGungeon(){
+        ConsoleSystem.printer("It is before you... That long awaited moment... At last you find yourself right before the dungeon...")
+        ConsoleSystem.printer(". . .")
+        ConsoleSystem.printer("You enter the dungeon. . .")
+    }
 
 }
 

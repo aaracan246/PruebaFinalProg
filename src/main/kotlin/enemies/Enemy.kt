@@ -9,7 +9,7 @@ open class Enemy(val name: String,
         return currentHealth > 0
     }
 
-    fun takeDmg(dmgTaken: Int): Int{
-        return currentHealth - dmgTaken
+    fun takeDmg(dmgTaken: Int){
+         currentHealth -= dmgTaken
     }
 }

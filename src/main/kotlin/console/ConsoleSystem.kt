@@ -53,7 +53,7 @@ object ConsoleSystem: Sender, Reader{
 
     fun inGameMenu(){
         t.println("Select your next move: ")
-        t.println("1. Normal attack (1d4)")
+        t.println("1. Normal attack (1d20)")
         t.println("2. Skill")
         t.println("3. Use item")
         t.println("4. Pass turn")
@@ -94,6 +94,17 @@ object ConsoleSystem: Sender, Reader{
 
         }
         t.println(table)
+    }
+
+    fun doorMenu(){
+        ConsoleSystem.printer("Which one will you choose?")
+        ConsoleSystem.printer("1. White one.")
+        ConsoleSystem.printer("2. Black one.")
+        ConsoleSystem.printer("Select here: ")
+    }
+
+    fun showSpellListPerClass(){
+
     }
 }
 

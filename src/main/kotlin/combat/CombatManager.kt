@@ -3,6 +3,7 @@ package combat
 import enemies.Enemy
 import miscellaneous.DiceRoller
 import miscellaneous.DiceType
+import org.example.Enemies.Bosses.Diego
 import org.example.GameFlow.Player
 import org.example.console.ConsoleSystem
 
@@ -26,11 +27,18 @@ object CombatManager{
 
                 else ->  ConsoleSystem.printer("Invalid choice.")
             }
-        }
-
         if (enemy.isAlive()){                                                                        // Turno máquina
             enemyAttack(player, enemy)
         }
+        if (!player.isAlive()){
+            ConsoleSystem.printer("You died.")
+        }
+        if (!enemy.isAlive()){
+            ConsoleSystem.printer("The enemy was defeated!!")
+        }
+        }
+
+        ConsoleSystem.printer("Ending combat...")
     }
 }
 
@@ -42,19 +50,19 @@ fun playerAttack(player: Player, enemy: Enemy): Int {
     val critFail = 2
     when (roll) {
 
-        in 2..19 -> ConsoleSystem.printer("You rolled a $roll. ${enemy.name} receives $roll points of dmg.")
+        in 2..19 -> ConsoleSystem.printer("You rolled a $roll. ${enemy.name} receives $roll points of dmg. (Current health: ${enemy.currentHealth})")
 
-        1 -> ConsoleSystem.printer("Critical failure!! You rolled a $roll. You miss the attack so hard you hit yourself in the head and take $critFail points of dmg.")
+        1 -> ConsoleSystem.printer("Critical failure!! You rolled a $roll. You miss the attack so hard you hit yourself in the head and take $critFail points of dmg. (${player.currentHealth})")
 
-        20 -> ConsoleSystem.printer("Critical hit!! You rolled a $roll.")
+        20 -> ConsoleSystem.printer("Critical hit!! You rolled a $roll. (Current health: ${enemy.currentHealth})")
     }
     enemy.takeDmg(roll)
     return roll
 }
 
-    fun playerSkill(){}
+    fun playerSkill(){ ConsoleSystem.printer("Welcome to our assistant! This element has not been implemented yet! Sorry for the inconvenience!") }
 
-    fun playerItem(){}
+    fun playerItem(){ ConsoleSystem.printer("Welcome to our assistant! This element has not been implemented yet! Sorry for the inconvenience!") }
 
     fun enemyAttack(player: Player, enemy: Enemy): Int{
         val diceRoller = DiceRoller()
@@ -63,14 +71,29 @@ fun playerAttack(player: Player, enemy: Enemy): Int {
         val critFail = 2
         when (roll) {
 
-            in 2..19 -> ConsoleSystem.printer("Enemy rolled a $roll. ${player.name} receives $roll points of dmg.")
+            in 2..19 -> ConsoleSystem.printer("Enemy rolled a $roll. ${player.name} receives $roll points of dmg. (Current health: ${player.currentHealth})")
 
-            1 -> ConsoleSystem.printer("Critical failure!! Enemy rolled a $roll. Enemy misses the attack so hard it hit itself in the head and take $critFail points of dmg.")
+            1 -> ConsoleSystem.printer("Critical failure!! Enemy rolled a $roll. Enemy misses the attack so hard it hit itself in the head and take $critFail points of dmg. (Current health: ${enemy.currentHealth})")
 
-            20 -> ConsoleSystem.printer("Critical hit!! Enemy rolled a $roll.")
+            20 -> ConsoleSystem.printer("Critical hit!! Enemy rolled a $roll. (Current health: ${player.currentHealth})")
         }
         player.takeDmg(roll)
         return roll
+    }
+
+
+    fun startBossCombat(player: Player, boss: Diego){
+        ConsoleSystem.printer("The room shifts, the temperature grows. Something's wrong. You have been feeling strange from the moment you went through the red door.")
+        ConsoleSystem.printer(". . .")
+        ConsoleSystem.printer("There it is. The heart of the dungeon, a chest with unfathomable treasure... And right before it, a shrouded figure...")
+        ConsoleSystem.printer(". . .")
+        ConsoleSystem.printer(". . .")
+        ConsoleSystem.printer(". . .")
+        ConsoleSystem.printer("As you walk towards the figure, he unshrouds himself. . .")
+        ConsoleSystem.printer(". . .")
+        ConsoleSystem.printer("it is Diego, lord of jokes and picardía.")
+
+        CombatManager.startCombat(player, boss)
     }
 
 
