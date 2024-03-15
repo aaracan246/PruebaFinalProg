@@ -28,7 +28,9 @@ object CombatManager{
                 else ->  ConsoleSystem.printer("Invalid choice.")
             }
         if (enemy.isAlive()){                                                                        // Turno máquina
+            ConsoleSystem.printer(". . .")
             enemyAttack(player, enemy)
+            ConsoleSystem.printer(". . .")
         }
         if (!player.isAlive()){
             ConsoleSystem.printer("You died.")
