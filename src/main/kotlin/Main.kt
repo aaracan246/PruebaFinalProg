@@ -1,14 +1,10 @@
 package org.example
 
-import classes.Cleric
 import enemies.Enemy
-import enemies.Rat
 import miscellaneous.Event
 import miscellaneous.Mappers
-import miscellaneous.Stories
 import org.example.Enemies.Bosses.Diego
 import org.example.GameFlow.CreatePlayer
-import org.example.GameFlow.Player
 import org.example.console.ConsoleSystem
 
 fun main() {
@@ -25,7 +21,7 @@ fun main() {
     val eventoide = events.generateEvent()
 
     // Print the prologue of the game
-    Stories.printPrologue()
+    ConsoleSystem.printPrologue()
 
     // Create a player character
     val player = CreatePlayer.createChar()
@@ -34,7 +30,7 @@ fun main() {
     consoleSystem.showCharData(player)
 
     // Enter the dungeon
-    Stories.enterTheGungeon()
+    ConsoleSystem.enterTheGungeon()
 
     // Choose a door
     mappers.chooseDoor()
