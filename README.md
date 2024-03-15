@@ -127,7 +127,7 @@ https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8
 
   Otro error solucionado depurando fue, también relacionado con el combate, el que no bajase la vida ni del jugador ni del enemigo. Esto era debido a que las funciones que controlan el daño takeDmg() no estaban recalculando bien currentHealth.
 
-  El último error, y el más rápido de solucionar fue un fallo al aplicar las restricciones a la creación de una clase falsa para probar funciones. Asigné una clase Fighter("", 0, 0, 0, etc. . .) y claro, no puedo tener un constructor de nombre vacío. 
+  El último error, y el más rápido de solucionar fue un fallo al aplicar las restricciones a la creación de una clase falsa para probar funciones. Asigné una clase Fighter("", 0, 0, 0, etc. . .) y claro, no se puede tener un constructor de nombre vacío. 
 
 #### **Criterio global 4: Definir clases y su contenido**
 - **(4.b, 4.c, 4.d, 4.g)**: Explica sobre un ejemplo de tu código, cómo definiste las clases en tu proyecto, es decir como identificaste las de propiedades, métodos y constructores y modificadores del control de acceso a métodos y propiedades, para representar al objeto del mundo real. ¿Cómo contribuyen estas clases a la solución del problema que tu aplicación aborda?
@@ -172,13 +172,33 @@ https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8
 #### **Criterio global 6: Diseño de jerarquía de clases**
 - **(7.d, 7.e, 7.f, 7.g)**: Presenta la jerarquía de clases que diseñaste. ¿Cómo probaste y depuraste esta jerarquía para asegurar su correcto funcionamiento? ¿Qué tipo de herencia has utilizado: Especificación, Especialización, Extensión, Construcción?
 
-   El método de herencia que más se ha utilizado en el proyecto es el de especialización. Esto se ve reflejado en herencias como la de Player -> Clerigo, Fighter, Rogue y Sorcerer. Estas cuatro clases son especializaciones de una abstract class Player. Lo mismo pasa con Enemy -> Rat, Bandit, etc.  
+   El método de herencia que más se ha utilizado en el proyecto es el de especialización. Esto se ve reflejado en herencias como la de Player-> Cleric, Fighter, Rogue y Sorcerer. Estas cuatro clases son especializaciones de una abstract class Player. Lo mismo pasa con Enemy-> Rat, Bandit, etc.
+
+   A nivel de depuración, se han realizado pruebas para comprobar que Cleric, por ejemplo, llegue correctamente a Player para obtener sus atributos. 
 
 #### **Criterio global 7: Librerías de clases**
 - **(2.g, 4.k)**: Describe cualquier librería externa que hayas incorporado en tu proyecto. Explica cómo y por qué las elegiste, y cómo las incorporaste en tu proyecto. ¿Cómo extendió la funcionalidad de tu aplicación? Proporciona ejemplos específicos de su uso en tu proyecto.
 
+   En el proyecto se han utilizado las librerías de Mordant y JUnit. En el caso de Mordant permite personalizar la consola del IDE de manera amplia permitiendo un producto más bonito. Su implementación fue sencilla (implementarlo en la librería) y simplemente hay que llamar a la terminal:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/console/ConsoleSystem.kt#L55-L60
+
+   Esto permite el acceso a una serie de métodos que embellecen mucho el texto. Además de acceso a tablas:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/console/ConsoleSystem.kt#L110-L123
+
+   Otra librería usada es la de JUnit, que ha sido usada en la realización de los tests para probar algunas funciones: 
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/test/kotlin/gameflow/PlayerTest.kt#L3-L71
+
 #### **Criterio global 8: Documentado**
 - **(7.h)**: Muestra ejemplos de cómo has documentado y comentado tu código. ¿Que herramientas has utilizado? ¿Cómo aseguras que tu documentación aporte valor para la comprensión, mantenimiento y depuración del código?
+
+   Se ha documentado en KDoc. Para poder documentar el código se han usado una serie de etiquetas que muestran el contenido que señales como @param o @return. Documentar y comentar el código de manera exhaustiva permite un rápido y claro entendimiento de este sin importar ni quién lo lea ni cuando. Algunos ejemplos del código del proyecto:
+
+Cleric:
+
+https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8e6fa0a73fec/src/main/kotlin/classes/Cleric.kt#L5-L16
 
 #### **Criterio global 9: Genéricos**
 - **(6.f)**: Muestra ejemplos de tu código sobre cómo has implementado una clase con genéricos. ¿Qué beneficio has obtenido?
