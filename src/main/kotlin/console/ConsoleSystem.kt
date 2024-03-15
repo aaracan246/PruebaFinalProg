@@ -126,10 +126,10 @@ object ConsoleSystem : Sender, Reader {
      * Function to display the door selection menu.
      */
     fun doorMenu() {
-        ConsoleSystem.printer("Which one will you choose?")
-        ConsoleSystem.printer("1. White one.")
-        ConsoleSystem.printer("2. Black one.")
-        ConsoleSystem.printer("Select here: ")
+        printer("Which one will you choose?")
+        printer("1. White one.")
+        printer("2. Black one.")
+        printer("Select here: ")
     }
 
     fun showSpellListPerClass(){
