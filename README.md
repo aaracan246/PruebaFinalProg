@@ -172,6 +172,8 @@ https://github.com/aaracan246/PruebaFinalProg/blob/41b05da3d70a6accfa4d4f9a685d8
 #### **Criterio global 6: Diseño de jerarquía de clases**
 - **(7.d, 7.e, 7.f, 7.g)**: Presenta la jerarquía de clases que diseñaste. ¿Cómo probaste y depuraste esta jerarquía para asegurar su correcto funcionamiento? ¿Qué tipo de herencia has utilizado: Especificación, Especialización, Extensión, Construcción?
 
+   El método de herencia que más se ha utilizado en el proyecto es el de especialización. Esto se ve reflejado en herencias como la de Player -> Clerigo, Fighter, Rogue y Sorcerer. Estas cuatro clases son especializaciones de una abstract class Player. Lo mismo pasa con Enemy -> Rat, Bandit, etc.  
+
 #### **Criterio global 7: Librerías de clases**
 - **(2.g, 4.k)**: Describe cualquier librería externa que hayas incorporado en tu proyecto. Explica cómo y por qué las elegiste, y cómo las incorporaste en tu proyecto. ¿Cómo extendió la funcionalidad de tu aplicación? Proporciona ejemplos específicos de su uso en tu proyecto.
 
